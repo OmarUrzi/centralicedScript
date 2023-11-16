@@ -7,9 +7,9 @@ const purchaseDiv = document.getElementById('tmp_button-11867')
 let lengthToDelete = ""
 let checked = true
 //document.getElementById('pid-4345194-0').checked = false
-const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
+/*const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
 console.log("aca viene el radio")
-console.log(radioButtons)
+console.log(radioButtons)*/
 /*for (const radioButton of radioButtons) {
   radioButton.checked = false
   radioButton.addEventListener('change', checker)
