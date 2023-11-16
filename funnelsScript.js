@@ -1,4 +1,6 @@
-  const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
+ console.log("cargado el script")
+ 
+ const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
 const ccExpiry = document.querySelector("input[name='purchase[credit_card_exp_date_month_year]']")
 const ccCvc = document.querySelector("input[name='purchase[security_code]']")
 const purchaseDiv = document.getElementById('tmp_button-11867')
