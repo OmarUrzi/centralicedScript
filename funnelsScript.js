@@ -3,13 +3,13 @@
  const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
 const ccExpiry = document.querySelector("input[name='purchase[credit_card_exp_date_month_year]']")
 const ccCvc = document.querySelector("input[name='purchase[security_code]']")
-const purchaseDiv = document.getElementById('tmp_button-11867')
+const purchaseDiv = document.querySelector("div[data-title='button']")
 let lengthToDelete = ""
 let checked = true
 //document.getElementById('pid-4345194-0').checked = false
-/*const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
+const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
 console.log("aca viene el radio")
-console.log(radioButtons)*/
+console.log(radioButtons)
 /*for (const radioButton of radioButtons) {
   radioButton.checked = false
   radioButton.addEventListener('change', checker)
