@@ -145,10 +145,9 @@ function checker(e) {
 }
 function jsonCreator() {
     //Sales And Business Info
-    const salesRep = document.getElementById('tmp_select_input-77593')
-    const objectSalesRep = salesRep.getElementsByTagName('select')[0]
+    const salesRep = document.querySelector("select[data-custom-type='Sales Rep']")
     const businessName = document.querySelector("input[data-custom-type='Business Name']")
-    let salesRepValue = objectSalesRep ? objectSalesRep.value : ""
+    let salesRepValue = salesRep ? salesRep.value : ""
     let businessNameValue = businessName ? businessName.value : ""
     //cc info
     const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
