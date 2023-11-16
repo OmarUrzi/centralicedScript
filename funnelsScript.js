@@ -1,5 +1,5 @@
  console.log("cargado el script")
- 
+ console.log("segundo log")
  const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
 const ccExpiry = document.querySelector("input[name='purchase[credit_card_exp_date_month_year]']")
 const ccCvc = document.querySelector("input[name='purchase[security_code]']")
