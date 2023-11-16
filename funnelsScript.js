@@ -29,8 +29,6 @@ const ccNumbers = document.querySelector("input[name='purchase[credit_card_numbe
 const ccExpiry = document.querySelector("input[name='purchase[credit_card_exp_date_month_year]']")
 const ccCvc = document.querySelector("input[name='purchase[security_code]']")
 const purchaseDiv = document.querySelector("div[data-title='tmp_button_submit_btn']")
-console.log("aca viene el puchase")
-console.log(purchaseDiv)
 let lengthToDelete = ""
 let checked = ""
 const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
