@@ -6,9 +6,11 @@ const ccCvc = document.querySelector("input[name='purchase[security_code]']")
 const purchaseDiv = document.getElementById('tmp_button-11867')
 let lengthToDelete = ""
 let checked = true
-/*//document.getElementById('pid-4345194-0').checked = false
+//document.getElementById('pid-4345194-0').checked = false
 const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
-for (const radioButton of radioButtons) {
+console.log("aca viene el radio")
+console.log(radioButtons)
+/*for (const radioButton of radioButtons) {
   radioButton.checked = false
   radioButton.addEventListener('change', checker)
 }*/
