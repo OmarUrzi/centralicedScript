@@ -1,7 +1,7 @@
 const currentURL = window.location.search;
 const urlSearchParams = new URLSearchParams(currentURL);
-// Doing POST to Make to get Source
-let sourceParam = ""
+  // Doing POST to Make to get Source
+    let sourceParam = ""
 function request(method, url) {
   let data = {
   "urlParams": currentURL.split("?")[1] 
