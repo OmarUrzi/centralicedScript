@@ -40,10 +40,11 @@ window.addEventListener('load', function() {
   const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
   const radioButtonsArray = Array.from(radioButtons)
     const productsDiv = radioButtons[0].closest("div")
-    productsDiv.id = "productsDiv"
+    const divHref = document.querySelector("div[data-title='Credit Card Form']").id
   // Initial values
   let lengthToDelete = ""
   let checked = ""
+  
   
   
   //Add Products to a checker list if all are unchecked
@@ -58,7 +59,7 @@ window.addEventListener('load', function() {
   })
 
   //Prevent Click Purchase Button
-  purchaseButton.href = "#productsDiv"
+  purchaseButton.href = "#" + divHref
   //Fields Length
   ccNumbers.maxLength = 16
   ccExpiry.maxLength = 5
@@ -164,7 +165,7 @@ window.addEventListener('load', function() {
         
   purchaseButton.href = hrefOriginal
       } else {
-  purchaseButton.href = "#productsDiv"
+  purchaseButton.href = "#" + divHref
       }
   }
   //Checker
