@@ -39,12 +39,11 @@ window.addEventListener('load', function() {
   //Products
   const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
   const radioButtonsArray = Array.from(radioButtons)
+    const productsDiv = radioButtons[0].closest("div")
+    productsDiv.id = "productsDiv"
   // Initial values
   let lengthToDelete = ""
   let checked = ""
-  
-  
-  
   
   
   //Add Products to a checker list if all are unchecked
@@ -59,8 +58,7 @@ window.addEventListener('load', function() {
   })
 
   //Prevent Click Purchase Button
-  purchaseButton.style.pointerEvents = "none"
-  purchaseButton.style.cursor = "default"
+  purchaseButton.href = "#productsDiv"
   //Fields Length
   ccNumbers.maxLength = 16
   ccExpiry.maxLength = 5
@@ -69,6 +67,7 @@ window.addEventListener('load', function() {
   ccNumbers.addEventListener('input', updateCCNumbers)
   ccCvc.addEventListener('input', updateCCNumbers)
   ccExpiry.addEventListener('input', updateExpiry)
+  purchaseButton.addEventListener('click',checkIfReady)
   if (salesRep) {
       salesRep.onchange = () => jsonCreator()
   }
@@ -131,6 +130,14 @@ window.addEventListener('load', function() {
   }
   //Check if Ready
   function checkIfReady() {
+    if(checked !== true){
+      productsDiv.style.clear = "left";
+          productsDiv.style.borderColor = "red";
+         productsDiv.style.borderWidth = "3px"
+  	productsDiv.style.borderStyle = "solid"
+    }else{
+    productsDiv.style.borderWidth = "0px"
+    }
       if (!(ccNumbers.value.length == 15 || ccNumbers.value.length == 16)) {
           ccNumbers.style.clear = "left";
           ccNumbers.style.borderColor = "red";
@@ -153,11 +160,11 @@ window.addEventListener('load', function() {
           ccCvc.removeAttribute("style")
       }
       if ((ccNumbers.value.length == 15 || ccNumbers.value.length == 16) && ccExpiry.value.length == 5 && ccCvc.value.length >= 3 && checked == true) {
-        purchaseButton.style.pointerEvents = "auto"
-        purchaseButton.style.cursor = "pointer"
+        let hrefOriginal = purchaseButton.getAttribute('data-href-original')
+        
+  purchaseButton.href = hrefOriginal
       } else {
-        purchaseButton.style.pointerEvents = "none"
-        purchaseButton.style.cursor = "default"
+  purchaseButton.href = "#productsDiv"
       }
   }
   //Checker
