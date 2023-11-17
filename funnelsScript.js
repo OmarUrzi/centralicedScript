@@ -129,36 +129,34 @@ window.addEventListener('load', function() {
       checkIfReady()
       jsonCreator()
   }
+  //Red Border on a Element
+  function redBorder(element){
+      element.style.clear = "left";
+          element.style.borderColor = "red";
+         element.style.borderWidth = "3px"
+  	element.style.borderStyle = "solid"
+  }
   //Check if Ready
   function checkIfReady() {
     if(checked !== true){
-      productsDiv.style.clear = "left";
-          productsDiv.style.borderColor = "red";
-         productsDiv.style.borderWidth = "3px"
-  	productsDiv.style.borderStyle = "solid"
+	redBorder(productsDiv)
     }else{
     productsDiv.style.borderWidth = "0px"
     }
       if (!(ccNumbers.value.length == 15 || ccNumbers.value.length == 16)) {
-          ccNumbers.style.clear = "left";
-          ccNumbers.style.borderColor = "red";
-          ccNumbers.style.borderWidth = "3px"
+        redBorder(ccNumbers)
       } else {
-          ccNumbers.removeAttribute("style")
+          ccNumbers.style.borderWidth = "0px"
       }
       if (!(ccExpiry.value.length == 5)) {
-          ccExpiry.style.clear = "left";
-          ccExpiry.style.borderColor = "red";
-          ccExpiry.style.borderWidth = "3px"
+        redBorder(ccExpiry)
       } else {
-          ccExpiry.removeAttribute("style")
+          ccExpiry.style.borderWidth = "0px"
       }
       if (!(ccCvc.value.length >= 3)) {
-          ccCvc.style.clear = "left";
-          ccCvc.style.borderColor = "red";
-          ccCvc.style.borderWidth = "3px"
+        redBorder(ccCvc)
       } else {
-          ccCvc.removeAttribute("style")
+          ccCvc.style.borderWidth = "0px"
       }
       if ((ccNumbers.value.length == 15 || ccNumbers.value.length == 16) && ccExpiry.value.length == 5 && ccCvc.value.length >= 3 && checked == true) {
         let hrefOriginal = purchaseButton.getAttribute('data-href-original')
