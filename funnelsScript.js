@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    // Doing POST to Make to get Source
+    // POST to Make to get Source
   const currentURL = window.location.search;
   const urlSearchParams = new URLSearchParams(currentURL);
   
