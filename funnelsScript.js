@@ -49,14 +49,15 @@ window.addEventListener('load', function() {
   
   //Add Products to a checker list if all are unchecked
   radioButtonsArray.map(e => {
-      if (e.checked == true) {
+      if (e.checked == true && e.clientHeight === '0') {
           checked = true
+      }else{
+        e.addEventListener('change', checker)
+        e.checked = false
       }
+
   })
-  for (const radioButton of radioButtons) {
-      radioButton.checked = false
-      radioButton.addEventListener('change', checker)
-  }
+
   //Prevent Click Purchase Button
   purchaseButton.style.pointerEvents = "none"
   purchaseButton.style.cursor = "default"
