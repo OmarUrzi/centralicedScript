@@ -49,7 +49,7 @@ window.addEventListener('load', function() {
   
   //Add Products to a checker list if all are unchecked
   radioButtonsArray.map(e => {
-      if (e.checked == true && e.clientHeight === '0') {
+      if (e.checked == true && e.clientHeight === 0) {
           checked = true
       }else{
         e.addEventListener('change', checker)
