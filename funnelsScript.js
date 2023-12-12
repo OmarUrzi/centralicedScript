@@ -21,7 +21,15 @@ window.addEventListener('load', function () {
     const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
     const radioButtonsArray = Array.from(radioButtons)
     const productsDiv = radioButtons[0].closest("div")
-    const divHref = document.querySelector("div[data-title='Credit Card Form']").id
+    let divHref = ""
+    // Purchases?
+    if(document.querySelector("div[data-title='Credit Card Form']")){
+        divHref = document.querySelector("div[data-title='Credit Card Form']").id
+    }
+    if(document.querySelector("div[class='elOrderProductOptions']")){
+        document.querySelector("div[class='elOrderProductOptions']").id = "hrefHere"
+        divHref = document.querySelector("div[class='elOrderProductOptions']").id
+    }
     // Initial values
     let lengthToDelete = ""
     let checked = ""
