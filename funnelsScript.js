@@ -1,5 +1,5 @@
 window.addEventListener('load', function () {
-    // Version 1.0.0
+    // Version 1.0.1
     //Declare Variables !
 
     // Query Params
@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
     const ccCvc = document.querySelector("input[name='purchase[security_code]']")
     //input
     const shipInput = document.querySelector("input[name='shipping_city']")
-    const purchaseButton = document.querySelector("a[data-href-original='#submit-form']")
+    const purchaseButton = document.querySelector("a[data-href-original='#submit-form']") || document.querySelector("a[data-href-original='#submit-form-2step-order']")
     //Products
     const radioButtons = document.querySelectorAll('input[name="purchase[product_id]"]')
     const radioButtonsArray = Array.from(radioButtons)
@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
     })
 
     //Prevent Click Purchase Button
-    purchaseButton.href = "#" + divHref
+    purchaseButton.href = divHref!== "" ? "#" + divHref : purchaseButton.href
     //Fields Length
     ccNumbers.maxLength = 16
     ccExpiry.maxLength = 5
@@ -81,19 +81,13 @@ window.addEventListener('load', function () {
     function updateExpiry(e) {
         let ccExpiryNoSpace = ccExpiry.value.replace(/\D/g, '')
         let expiryLength = ccExpiryNoSpace.length
-        console.log(expiryLength)
         let ccArray = ccExpiryNoSpace.split('')
-        console.log(ccArray[0])
         if (ccArray[0] > 1 && expiryLength == 1) {
-            console.log("enter en el if")
             ccExpiry.value = 0 + "" + ccArray[0]
         } else if (ccArray[0] == 1 && ccArray[1] > 2 && expiryLength == 2) {
             ccExpiry.value = ccArray[0]
         } else {
             if (expiryLength > 2) {
-                console.log("Entre en el >2")
-                console.log("Length: " + expiryLength)
-                console.log("No Space: " + ccExpiryNoSpace)
                 let inputValue = ""
                 if (ccArray.length <= 3 && ccArray[2] > 1) {
                     inputValue = ccArray[0] + "" + ccArray[1] + "/" + ccArray[2]
@@ -152,7 +146,7 @@ window.addEventListener('load', function () {
 
             purchaseButton.href = hrefOriginal
         } else {
-            purchaseButton.href = "#" + divHref
+            purchaseButton.href = divHref!== "" ? "#" + divHref : purchaseButton.href
         }
     }
     //Checker
