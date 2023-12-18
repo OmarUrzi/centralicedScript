@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
     // Query Params
     const currentURL = window.location.search;
     const urlSearchParams = new URLSearchParams(currentURL);
-    let sourceParam = urlSearchParams.get('source')
+    let sourceParam = urlSearchParams.get('source') || urlSearchParams.get('utm_source')
 
     //Sales And Business Info
     const salesRep = document.querySelector("select[data-custom-type='Sales Rep']")
